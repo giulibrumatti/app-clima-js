@@ -9,7 +9,7 @@ window.addEventListener("load", () => {
     }
 })
 
-let cityInput = document.querySelector("aget-city");
+let cityInput = document.querySelector("#get-city");
 cityInput.addEventListener("keypress", (event) => {
     if (event.key == "Enter") {
         fetchDataFromApi();
@@ -18,7 +18,7 @@ cityInput.addEventListener("keypress", (event) => {
 
 
 let apiData = {
-	url: "api.openweathermap.org/data/2.5/weather?q=",
+	url: "https://api.openweathermap.org/data/2.5/weather?q=",
 	key: "758419e1d6a4b47386eb136e35d939ff",
 };
 
@@ -28,7 +28,7 @@ cityInput.value = "";
 
 function fetchDataFromApi() {
 	let insertedCity = cityInput.value;
-	fetch(`${apiData.url}${insertedCity}&appid=${apiData.key}`)
+	fetch(`${apiData.url}${insertedCity}&&APPID=${apiData.key}`)
 		.then((res) => res.json())
 		.then((data) => addDataToDom(data));
 }
